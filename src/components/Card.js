@@ -9,49 +9,48 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { AddShoppingCart } from '@mui/icons-material';
-import { makeStyles } from '@mui/styles';
 import clsx from 'clsx';
+import { makeStyles } from '@mui/styles';
+import accounting from "accounting";
 
-const useStyles = makeStyles((theme) => ({
-  root:{
-    maxWidth: 345,
-  },
-  action:{
-    marginTop:"10rem",
-  },
-  media:{
-    height:194,
-    paddingTop:"56%"
-  },
-  expand:{
-    transform:"rotate(0deg)",
-    marginLeft:"auto",
-    transition:theme.transition.create("transform",{
-      duration: theme.transition.duration.shortest,
-    }),
-  },
-  expandOpen:{
-    transform:"rotate(180deg)",
-  },
-}));
+const useStyles = makeStyles((theme)=>({
+    root:{
+        maxWidth: 345,
+      },
+      action:{
+        marginTop:"10rem",
+      },
+      media:{
+        height:304,
+      },
+      expand:{
+        transform:"rotate(0deg)",
+        marginLeft:"100",
+        padding:100
+        
+      },
+      expandOpen:{
+        transform:"rotate(180deg)",
+      },
+  }));
 
+export default function CardProducts() {
+    const classes = useStyles();
+    const [expanded, setExpanded] = React.useState(false);
 
-export default function Products() {
-  const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
+    const handleExpandClick = () => {
+      setExpanded(!expanded);
+    };
 
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
-  return (
-    <Card className={classes.root}>
-      <CardHeader
+    return(
+        <Card className={classes.root}>
+             <CardHeader
         action={
           <Typography
             className={classes.action}
             variant='h5'
             color='textSecondary'>
-            {50}
+            {accounting.formatMoney(50,"$")}
           </Typography>
         }
         title="Coffe Arabic"
@@ -93,6 +92,7 @@ export default function Products() {
          <Typography paragraph> Coffe is screem</Typography>
         </CardContent>
       </Collapse>
-    </Card>
-  );
+        </Card>
+    )
 }
+
