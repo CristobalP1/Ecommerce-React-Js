@@ -16,17 +16,20 @@ import accounting from "accounting";
 const useStyles = makeStyles((theme)=>({
     root:{
         maxWidth: 345,
+        marginTop:"7rem",
+        marginLeft:"1rem",
+        
       },
       action:{
-        marginTop:"10rem",
+        marginTop:"0.5rem",
       },
       media:{
         height:304,
       },
       expand:{
         transform:"rotate(0deg)",
-        marginLeft:"100",
-        padding:100
+        marginLeft:"10rem",
+        padding:10
         
       },
       expandOpen:{
